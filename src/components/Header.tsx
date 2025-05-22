@@ -16,7 +16,7 @@ export default function Header() {
     const searchRecipes = useAppStore((state) => state.searchRecipes)
     const showNotification = useAppStore((state) => state.showNotification)
 
-    
+
 
     useEffect(() => {
         fetchCategories()
@@ -34,8 +34,8 @@ export default function Header() {
         e.preventDefault();
         if (Object.values(searchFilters).includes('')) {
             showNotification({
-                text:'All fields are required', 
-                error:true
+                text: 'All fields are required',
+                error: true
             })
             return
         }
@@ -58,6 +58,11 @@ export default function Header() {
                             className={({ isActive }) => isActive ? 'text-orange-500 uppercase font-bold' : 'text-white uppercase font-bold'}
                             to={"favorites"}>
                             Favorites
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) => isActive ? 'text-orange-500 uppercase font-bold' : 'text-white uppercase font-bold'}
+                            to={"generate"}>
+                            Generate AI
                         </NavLink>
                     </nav>
                 </div>
